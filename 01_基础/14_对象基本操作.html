@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            创建对象：
+                使用new关键字调用的函数，是构造函数constructor
+                构造函数是专门用来创建对象的函数
+            向对象中添加属性：
+                对象.属性名 = 属性值
+                对象["属性名"] = 属性值
+            读取对象中的属性:
+                对象.属性名
+                对象["属性名"]
+            修改对象的属性值
+            删除对象中的属性[只能删除属性，不能删除对象] :
+                delete 对象.属性名
+            
+            PS : 使用[]形式操作属性，更加灵活
+            属性值可以是任意数据类型(string\object\boolean...)
+            in运算符：
+                检查对象中是否含有指定的属性
+                返回值：true / false
+                "属性名" in 对象
+        */
+        var obj = new Object();
+        console.log(obj);
+        console.log(typeof obj);
+
+        // 向对象中添加属性
+        obj.name = "YuanXiao"
+        obj.gender = 'girl'
+        obj.age = 18
+        console.log(obj);
+        // 读取对象中的属性
+        console.log(obj.name);
+        console.log(obj.age);
+        console.log(name); // 空
+        console.log(obj.hello); // undefined
+        // 修改对象属性值
+        obj.age = 8;
+        console.log(obj.age);
+        // 删除对象中的属性
+        delete obj.age;
+        console.log(obj.age);
+        // 删除无效
+        delete obj
+        console.log(obj);
+
+        obj["123"] = 123;
+        console.log(obj["123"]);
+
+        var obj2 = new Object();
+        obj2.name = 'danny'
+        obj.test = obj2
+
+        // in运算符
+        console.log(obj);
+        console.log("age" in obj);
+        console.log("name" in obj);
+    </script>
+</body>
+
+</html>

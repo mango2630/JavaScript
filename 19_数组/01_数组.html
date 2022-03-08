@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            内建对象
+            宿主对象
+            自定义对象
+
+            数组（Array）
+                - 数组也是一个对象
+                - 使用索引来操作元素
+                - 数组的存储性能比普通对象好，开发中经常使用数组来存储一些数据
+                - 使用typeof检查数组事，返回object
+            数组操作：
+                - 数组创建
+                    - new Array，构造函数创建
+                        - new Array(num):num表示长度
+                        - new Array(1, 3, n):表示元素
+                    - 字面量
+                - 向数组中添加元素
+                - 向数组中读取元素
+                    如果读取不存在的索引，不会报错，返回undefined
+                - 数组长度：length [设置 or 返回]
+                    - 非连续数组，length = maxIndex + 1,没有元素的位置为empty
+                    - 连续数组
+
+            数组属性：
+                - constructor
+                - length
+                - prototype
+            数组方法：
+
+        */
+
+        
+
+        // 创建数组对象
+        var arr = new Array();
+        console.log(arr);
+        console.log(typeof arr);  // object
+
+        arr[0] = 0;
+        arr[1] = 1;
+        arr[2] = 2;
+        arr[11] = 11;
+
+        console.log(arr.length);
+        console.log(arr);
+
+        // 多余的被删除
+        arr.length = 5;
+        console.log(arr.length);
+        console.log(arr);
+    </script>
+</body>
+</html>

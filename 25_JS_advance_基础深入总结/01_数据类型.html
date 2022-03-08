@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        /* 
+            数据类型：
+                - 分类
+                    - 基本（值）类型
+                        String 
+                        Number [typeof]
+                        Boolean: true false
+                        undefined [typeof ===]
+                        null [===判断]
+                    - 引用（对象）类型
+                        Object 
+                        Function
+                        Array
+                - 判断
+                    typeof
+                        - 不能判断 null 与 object
+                        - 不能判断 array 与 object
+                    instanceof: 判断对象的具体类型
+                    ===
+            实例（实例对象）：
+            类型（类型对象）：
+
+            undefined 与 null 的区别？
+                - undefined 代表定义未赋值
+                - null 代表赋了值为null
+
+            什么时候给变量赋值为 null?
+                - 初始赋值为null，表示将要赋值为对象
+                - [垃圾对象：没有引用指向它] 在结束的时候，赋值为null，让指向的对象成为垃圾对象（被垃圾回收器回收）
+
+            严格区分变量类型与数据类型？
+                - JS是弱类型的语言
+                - 数据类型：
+                    基本类型
+                    对象类型
+                - 变量内型（变量内存值的类型）
+                    - 基本类型：保存的是基本类型的数据
+                    - 引用类型：保存的是地址值
+        */
+
+        console.log(undefined === 'undefined'); // false
+        console.log(undefined === undefined); // true
+
+        console.log(typeof undefined); // undefined [string类型]
+
+        var a;
+        console.log(a, typeof a);
+
+        a = 3;
+        console.log(typeof a === 'number');
+
+        a = "afaf"
+        console.log(typeof a); // string
+
+        a = true;
+        console.log(typeof a === 'boolean');
+
+        a = null;
+        console.log(typeof a); // object
+        console.log(a === null);  // true
+
+        // 对象
+        var b1 = {
+            b2 : [1, "abc", console.log],
+            b3 : function () {
+                console.log("b3");
+                return function () {
+                    return "result...."
+                }
+            }
+        }
+
+        /* 
+            new Object(): new构造函数
+            b1 是 Object 实例
+        */
+        console.log(b1 instanceof Object); // true
+        console.log(b1 instanceof Array); // false
+        console.log(b1.b2 instanceof Array, b1.b2 instanceof Array); // true true
+        console.log(b1.b3 instanceof Function, b1.b3 instanceof Object); // true true
+
+        console.log(typeof b1.b3); // 'function'
+
+        console.log(typeof b1.b2[2]); // 'function'
+
+        // 执行调用函数
+        b1.b2[2](4);
+
+        /* 
+            output:
+                b2
+                result...
+        */
+        console.log(b1.b3()());
+
+
+        /* 
+            实例， 类型
+            Person: 构造函数，（函数是一种特别的对象）也是一个对象
+        */
+        function Person(age, name) { // 构造函数 类型
+            this.name = name;
+            this.age = age;
+        }
+        var p = new Person(); // 根据类型创建的实例对象
+
+
+
+        /* 
+            严格区分变量类型与数据类型？
+                - JS是弱类型的语言
+                - 数据类型：
+                    基本类型
+                    对象类型
+                - 变量内型（变量内存值的类型）
+                    - 基本类型：保存的是基本类型的数据
+                    - 引用类型：保存的是地址值
+        */
+
+        var c = {} // 保存的是对象类型的地址值
+
+        
+    </script>
+</body>
+</html>

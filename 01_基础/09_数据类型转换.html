@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // 转换为字符串
+        // 1. 把数字型转换为字符串
+        var num = 10;
+        var str = num.toString();
+        console.log(num);
+        console.log(typeof num);
+        console.log(typeof str);
+
+        // 2. 利用String()
+        console.log(String(num));
+
+        // 3. 利用 + 拼接字符串的方法实现转换 [隐式转换]
+        console.log(num + '');
+
+    // 转换为数值型
+        // 1. parseInt(变量)
+        var age = prompt('请输入年龄')
+        console.log(parseInt(age)); // 取整
+        console.log(parseInt('120px')); // 120
+        console.log(parseInt('re123px')); // NaN
+
+        // 2. parseFloat(变量)
+        console.log(parseFloat('3.14')); // 3.14
+
+        // 3. 利用Number()变量
+        var str = '123';
+        console.log(Number(str));
+
+        // 4. 利用算术运算 - * /
+        console.log('12' - 0);
+
+    // 练习：加法器
+        var num1 = prompt('请输入num1')
+        var num2 = prompt('请输入num2')
+        console.log(Number(num1) + Number(num2));
+
+    // 转换为布尔型
+        console.log(Boolean(''));
+        console.log(Boolean(NaN));
+        console.log(Boolean(undefined));
+        console.log(Boolean(null));
+    </script>
+</body>
+</html>

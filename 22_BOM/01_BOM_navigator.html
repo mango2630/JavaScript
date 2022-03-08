@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        /* 
+            BOM
+                - 浏览器对象模型
+                - BOM可以是我们通过JS来操作浏览器
+                - DOM操作网页
+                - BOM对象
+                    - window
+                        - 代表整个浏览器的窗口，同时window也是网页中的全局对象
+                    - navigator
+                        - 代表当前浏览器的信息，通过该对象可以来识别不同的浏览器
+                    - location
+                        - 代表当前浏览器的地址栏信息，通过location可以获取地址栏信息，或者操作浏览器跳转页面
+                    = history
+                        - 代表浏览器的历史记录，可以通过该对象来操作浏览器的历史记录
+                        - 由于隐私原因，该对象不能获取到具体的历史记录，只能操作浏览器向前或者向后，而且该操作只在当此访问有效
+                    - screen
+                        - 显示器的相关信息
+        */
+        console.log(window);
+
+        /* 
+            navigator:
+                - navigator.appName [Netscape]
+                - userAgent:判断浏览器
+                    - Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.82 Safari/537.36
+                    - Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:92.0) Gecko/20100101 Firefox/92.0
+                    - IE <= 10： MSIE
+                    - IE 11: 
+                        - 属性判断 window.ActiveXObject [IE <= 10]
+                        - "ActiveXObject" in window [IE 11]
+
+
+
+        */
+        console.log(window.navigator.userAgent);
+
+        if(/firefox/i.test("string")){
+            console.log("火狐浏览器");
+        }
+        if(/chrome/i.test("str ing")){
+            console.log("谷歌");
+        }
+
+        if(window.ActiveXObject){
+            console.log("it is IE");
+        }
+
+        // ie
+
+        console.log(!! window.ActiveXObject);
+
+        console.log("ActiveXObject" in window);
+    </script>
+
+</body>
+</html>

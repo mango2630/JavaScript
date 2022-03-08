@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            slice(start, end):选取数组的一部分，并返回一个新数组[start, end)
+            splice(index, howmany, item1, intem2, intem3):从数组中添加或删除元素
+        */
+
+        var arr = [3, 31, 5, 1, 442]
+
+        console.log(arr.slice(2, 3));
+        console.log(arr.slice(2, -1));
+
+        var fruits = ["Banana", "Orange", "Apple", "Mango"];
+        console.log(fruits.splice(2,1,"Lemon","Kiwi"));
+        console.log(fruits);
+
+    </script>
+</body>
+</html>

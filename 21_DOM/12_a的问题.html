@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            width: 500px;
+            margin: 20px auto;
+            border: 1px solid black;
+        }
+        .table_info{
+            margin: 20px 100px;
+            display: block;
+        }
+        .user_info{
+            border: 1px solid black;
+            width: 300px;
+            margin: 10px auto;
+            padding: 10px 15px;
+        }
+        .user_info #btn{
+            margin: 10px 50px;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="table_info">
+            <table id="employeeTable" border="1">
+                <tr>
+                    <th>Name</th>
+                    <th>email</th>
+                    <th>salary</th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td>Tom</td>
+                    <td>tom@tom.com</td>
+                    <td>5000</td>
+                    <td><a href="javascrip:;">Delete</a></td>
+                </tr>
+                <tr>
+                    <td>Danny</td>
+                    <td>Danny@tom.com</td>
+                    <td>5000</td>
+                    <td><a href="">Delete</a></td>
+                </tr>
+            </table>
+        </div>
+        <div class="user_info">
+            <h3>添加新员工</h3>
+            <form action="">
+                name : <input type="text" name="username" id="username">
+                <br>
+                email : <input type="email" name="email" id="email">
+                <br>
+                salary : <input type="text" name="salary" id="salry">
+                <br>
+                <input type="submit" value="Submit" id="btn">
+            </form>
+        </div>
+    </div>
+
+    <script>
+        /* 
+            for循环会在页面加载完成之后立即执行
+            而响应函数会在超链接被点击时执行
+            当响应函数执行时，for循环早已执行完毕
+        */
+
+
+        // 获取超链接
+        var allA = document.getElementsByTagName("a")
+        // 为每个a绑定单击函数
+        for(var i = 0; i < allA.length; i ++){
+
+            console.log("for循环正在执行");
+
+            allA[i].onclick = function() {
+
+                console.log("响应函数正在执行");
+
+                // 获取tr
+                var tr = this.parentNode.parentNode;
+                console.log(this);
+                alert(i)
+            
+
+                // 阻止事件默认行为
+                return false;
+
+            }
+
+        }
+
+
+
+    </script>
+</body>
+</html>

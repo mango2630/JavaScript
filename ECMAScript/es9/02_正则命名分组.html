@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="http://www.atguigu.com">guigu</a>
+    <script>
+        // 声明一个字符串
+        let str = '<a href="http://www.atguigu.com">guigu</a>'
+
+        // 提取url 与 标签文本
+        const reg = /<a href="(.*)">(.*)<\/a>/;
+
+        const res = reg.exec(str)
+        console.log(res);
+
+        const reg2 = /<a href="(?<url>.*)">(?<text>.*)<\/a>/;
+        console.log(reg2.exec(str));
+    </script>
+</body>
+</html>

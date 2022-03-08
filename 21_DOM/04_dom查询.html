@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            border: 1px solid black;
+        }
+
+        .content{
+            border: 1px solid black;
+        }
+
+        .infomation{
+            border: 1px solid black;
+        }
+
+        .searchBar{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <div class="q1">
+                <p>你喜欢哪个城市？</p>
+                <ul id="city">
+                    <li id="bj">北京</li>
+                    <li>上海</li>
+                    <li>东京</li>
+                    <li>首尔</li>
+                </ul>
+            </div>
+            <div class="q2">
+                <p>你喜欢那款单机游戏？</p>
+                <ul>
+                    <li>红警</li>
+                    <li>实况</li>
+                    <li>极品飞车</li>
+                    <li>魔兽</li>
+                </ul>
+            </div>
+            <div class="q3">
+                <p>你手机的操作系统是？</p>
+                <ul>
+                    <li>IOS</li>
+                    <li>Android</li>
+                    <li>Windows Phone</li>
+                </ul>
+            </div>
+        </div>
+        <div class="infomation">
+            <form action="">
+                gender:
+                <input type="radio" name="gender" id="">Male
+                <input type="radio" name="gender" id="">Female
+                <br>
+                name : <input type="text" id="username">
+            </form>
+        </div>
+        <div class="searchBar">
+            <button id="btn01">查找bj节点</button>
+            <button id="btn02">查找li节点</button>
+            <button id="btn03">查找name="gender"节点</button>
+            <button>查找节点</button>
+            <button>查找节点</button>
+            <button>查找节点</button>
+            <button>查找节点</button>
+            <button>查找节点</button>
+        </div>
+    </div>
+
+    <script>
+        var btn01 = document.getElementById("btn01")
+        btn01.onclick = function () {
+            var bj = document.getElementById("bj")
+            console.log(bj);
+            alert(bj.innerHTML)
+        }
+
+        var btn02 = document.getElementById("btn02")
+        btn02.onclick = function () {
+            // 根据标签名获取一组元素节点对象
+            var lis = document.getElementsByTagName("li")
+            console.log(lis);
+            console.log(lis.length);
+
+            // 遍历数组
+            for(var i = 0; i < lis.length; i ++){
+                console.log(lis[i].innerHTML);
+            }
+        }
+
+        /* 
+            对于自结束标签，没有用
+            读取对象的属性，使用 元素.属性名
+            读取class : 元素.className
+        */
+        var btn03 = document.getElementById("btn03")
+        btn03.onclick = function () {
+            var inputs = document.getElementsByName("gender")
+            console.log(inputs);
+            console.log(inputs[0].type);
+        }
+        
+    </script>
+</body>
+</html>

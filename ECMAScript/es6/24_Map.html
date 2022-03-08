@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            Map()
+                类似于对象,也是键值对的集合.
+                Map也实现了iterator接口,所以可以使用[扩展运算符]和[for...of]进行遍历
+            Map属性和方法:
+                - size
+                - set
+                - get
+                - has
+                - clear
+        */
+        let m = new Map()
+        
+        // 添加元素
+        m.set("name", "yuan")
+        m.set("change", function () {
+            console.log('我们可以改变你');
+        })
+        let key = {
+            school: 'aiguigu'
+        }
+        m.set(key, ['beijing', 'shanghai'])
+
+        // 个数
+        console.log(m.size);
+
+        // 删除
+        m.delete("name")
+
+        // 获取
+        console.log(m.get("change"));
+
+        // 遍历
+        for(let v of m){
+            console.log(v);
+            console.log(v[0], v[1]);
+        }
+
+        // 清空
+        m.clear()
+    </script>
+</body>
+</html>

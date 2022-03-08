@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <button>添加超链接</button>
+
+    <ul id="u1" style="background-color: paleturquoise;">
+        <li><a class="link" href="javascript:;">1</a></li>
+        <li><a class="link" href="javascript:;">2</a></li>
+        <li><a class="link" href="javascript:;">3</a></li>
+    </ul>
+
+    <script>
+        /*
+            为每一个超链接都绑定一个单机响应函数 
+            事件委派
+            target:返回触发此事件的元素
+         */
+
+        var u1 = document.getElementById("u1")
+        var allA = document.getElementsByTagName("a");
+
+        /*  for(var i = 0; i < allA.length; i ++){
+            allA[i].onclick = function () {
+                alert("我是a的单击函数")
+            }
+        } */
+        // 事件委派
+        u1.onclick = function (e) {
+            // alert(this)
+            // console.log(e.target);
+            // alert('我是ul')
+
+            if(e.target.className == "link"){
+                console.log(e.target.className);
+                console.log("ullllllll");
+            }
+
+        }
+
+
+        var btn = document.getElementsByTagName("button")[0];
+        
+        btn.onclick = function () {
+            var li = document.createElement("li");
+            li.innerHTML = '<a class="link" href="javascript:;">4</a>'
+            
+            // 将li添加到Ul中
+            u1.appendChild(li)
+        }
+    </script>
+</body>
+</html>

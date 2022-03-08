@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            检查一个字符串是否含有aaa
+            量词
+                - 通过量词可以设置一个内容出现的次数
+                - reg = /a{3}/  [{n}]:正好出现n次
+                - {m, n} : 出现 m —— n次
+                - {m, } : 出现 m 次以上
+                - + 至少一个
+                - * 0个或多个
+                - ？ 0个或1个
+            检查ababab出现3次
+                - reg = /(ab){3}/
+
+            检查一个字符串是否以a开头
+                ^ 表示开头
+                /^a/
+            检查一个字符串是否以a结尾
+                $ 表示结尾
+                /a$/
+            创建于给字符串，检查一个字符串是否是一个合法手机号
+                手机号规则：
+                    第一位：1开头
+                    第二位：不能是1 2,3-9任意数字
+        */
+
+        var reg = /aaa/
+        console.log(reg.test("aaabc"));
+
+        reg = /a{3}/
+        console.log(reg.test("faaaf"));
+
+        reg = /(ab){3}/
+        console.log(reg.test("abababababee"));
+
+        // 检查合法手机号
+        var phoneStr = "13232133212"
+        reg = /^1[3-9][0-9]{9}$/
+        console.log(reg.test(phoneStr));
+    </script>
+</body>
+</html>

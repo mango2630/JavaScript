@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 500px;
+            height: 500px;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="box">
+        <img src="./img/1.jpg" alt="" id="img1">
+        
+    </div>
+    <button id="btn">开始</button>
+    <button id="offf">结束</button>
+
+    <script>
+        /* 
+            使图片可以自动切换
+
+            点击多次就会开启多个定时器，这就导致图片的切换速度过快，
+            并且我们只能关闭最后一次开启的定时器
+         */
+
+        var img1 = document.getElementById("img1")        
+
+        var imgArr = ['./img/1.jpg', './img/2.jpg', './img/3.png', './img/4.jpg']
+
+        // 创建一个变量，保存当前图片的索引
+        var index = 0;
+        
+
+        var btn = document.getElementById("btn")
+        var btn02 = document.getElementById("offf")
+
+        var timer = 0;
+
+        btn.onclick = function () {
+            // 开启一个定时器之前，关闭上一个定时器
+            clearInterval(timer)
+            timer = setInterval(() => {
+                if(index == 3){
+                    index = 0;
+                }else{
+                    index ++;
+                }
+                
+                img1.src = imgArr[index]
+            }, 1000);
+        }
+
+        btn02.onclick = function () {
+            clearInterval(timer)
+        }
+
+        
+    </script>
+</body>
+</html>

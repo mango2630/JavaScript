@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            正则表达式
+                - 用于定义一些字符串的规则
+                - 创建正则表达式对象
+                    var 变量 = new RegExp("正则表达式", "匹配模式")
+                    使用typeof检查，返回object
+            正则表达式方法：
+                - test() : 
+                    - 使用这个方法来检查一个字符串是否符合正则表达式规则，return true/false
+                    - 严格区分大小写
+            
+            匹配模式：
+                - i:忽略大小写
+                - g:全局匹配模式
+        */
+        // 创建正则表达式
+        var reg = new RegExp("a", "i");
+        console.log(reg, typeof reg);
+
+    
+        console.log(reg.test("a"));
+
+        console.log(reg.test("abcda"));
+        console.log(reg.test("fff"));
+
+        console.log(reg.test("AADFA"));
+    </script>
+</body>
+</html>

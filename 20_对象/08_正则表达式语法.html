@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            . : 表示任意字符
+            检查字符串中是否含有.
+                - 需要使用转义字符\
+
+            元字符：
+                \w : 任意字母、数组、_
+                \W : 除了字母、数字、_
+                \d : 任意数字
+                \D : 除了数字
+                \s : 空格
+                \S : 除了空格
+                \b : 单词边界
+                \B : 除了单词边界
+        */
+
+        var reg = /\./
+        console.log(reg.test("afaf") );
+
+        reg = /\w/
+        console.log(reg.test("dfs"));
+
+        reg = /\bchild\b/
+        console.log(reg.test("hello chileder "));
+
+        var str = prompt("请输入用户名")
+        // 去除掉字符串多余空格
+        reg = /^\s*|\s*$/g
+        // /^\s*/  /\s*$/  -- > /^\s*|\s*$/g
+        str = str.replace(reg, "")
+        console.log(str);
+    </script>
+</body>
+</html>

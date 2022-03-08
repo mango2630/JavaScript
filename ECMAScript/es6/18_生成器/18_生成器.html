@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            生成器是ES6提供的一种异步编程解决方案，语法行为与传统函数完全不同
+
+            生成器是一个特殊的函数
+
+            异步编程，之前纯回调函数 node fs ajax mongodb
+
+        */
+
+        // 认识
+        function * gen() {
+            console.log('hello generator');
+        }
+
+        let iterator = gen();
+        console.log(iterator);
+
+        iterator.next();
+
+        // yield语句：函数代码的分隔符
+        function * genTest() {
+            // console.log(111);
+            yield '一只没有耳朵';
+            // console.log(222);
+            yield '一只没有尾巴';
+            // console.log(333);
+            yield '真奇怪';
+            // console.log(444);
+        }
+        let ite = genTest();
+        ite.next()
+        ite.next()
+        ite.next()
+        ite.next()
+        ite.next()
+        ite.next()
+
+        // 遍历
+        for(let v of genTest()){
+            console.log(v);
+        }
+    </script>
+</body>
+</html>

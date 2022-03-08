@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>反向断言</title>
+</head>
+<body>
+    <script>
+        /* 
+            reg.exec()
+            正向断言
+            反向断言
+        */
+
+        // 声明字符串
+        let str = 'JS890q8409知道吗90809啦啦啦'
+        
+        // 提取最后的数字
+        const reg = /\d+(?=啦)/;
+
+        // 反向断言
+        const reg2 = /(?<=吗)\d+/;
+        console.log(reg2.exec(str));
+    </script>
+</body>
+</html>

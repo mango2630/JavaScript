@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        #box1{
+            width: 100px;
+            height: 100px;
+            background-color: chocolate;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    
+    <button id="btn01">点击按钮以后box1向右移动</button>
+    <br><br>
+    <div id="box1"></div>
+
+
+    <script>
+        /* 
+            getStyle(): 只能获取内联样式
+            parseInt()
+
+
+        */
+        var btn01 = document.getElementById("btn01")
+        var box1 = document.getElementById("box1")
+
+        btn01.onclick = function () {
+            // var newv = setInterval(() => {
+            //     var oldLeft = box1.offsetLeft
+            //     var oldTop = box1.offsetTop
+
+            //     var oldVale = parseInt(getStyle(box1, "left"))
+
+            //     var newValue = oldVale + 10;
+
+            //     box1.style.left = newValue + "px"
+            // }, 30);
+
+        }
+    </script>
+</body>
+</html>

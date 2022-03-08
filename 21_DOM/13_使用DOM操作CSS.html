@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1{
+            width: 200px;
+            height: 200px;
+            background-color: brown;
+        }
+    </style>
+</head>
+<body>
+    <div id="box1"></div>
+    <button id="btn01">点我变样式</button>
+    <script>
+        /* 
+            点击box后修改大小
+
+            通过JS修改元素的样式：
+                元素.style.样式名 = 样式值
+            
+            通过style样式改的是内联样式
+            优先级比较高，立即修改
+
+            ！读的是内联样式
+        */
+
+        var btn = document.getElementById("btn01")
+        var dox = document.getElementById("box1")
+
+        btn.onclick = function () {
+            dox.style.width = "100px"
+            dox.style.backgroundColor = "black"
+        }
+    </script>
+</body>
+</html>

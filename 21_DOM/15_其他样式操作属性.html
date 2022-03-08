@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1{
+            width: 100px;
+            height: 100px;
+            /* background-color: red; */
+            padding: 10px;
+            margin: 10px;
+            border: 10px solid yellow;
+            /* overflow: hidden; */
+            overflow: auto;
+        }
+        
+        #box2{
+            width: 500px;
+            height: 200px;
+            background-color: violet;
+            
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">点我以下</button>
+    <br>
+    <div id="root">
+        <div id="box">
+            <div id="box1">
+                <div id="box2">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        /* 
+            DOM Element
+
+            获取元素的可见高度和宽度：
+                这些属性都是只读属性，不能修改
+                - clientWidth = content + padding
+                - clientHeight = content + padding
+                - 返回值不带px,返回值都是数字
+
+                - offsetWidth = content + border + padding
+                - offsetHeight
+
+                
+                - offsetParent
+                    - 获取到离当前元素最近的开启了定位的祖先元素，如果所有的祖先元素开启定位，则返回body
+                    - 可以用来获取当前元素的定位父元素
+
+                - offsetLeft
+                    - 当前元素相对于其定位元素的水平偏移量
+                - offsetTop
+                    - 当前元素相对于其定位元素的垂直偏移量
+
+
+                - scrollHeight scrollWidth
+                    整个滚动区域的高度
+
+                - scrollLeft scrollTop
+                    水平滚动条移动的距离
+                    垂直滚动条移动的距离
+
+                当scrollHeight - scrollTop = clientHeight时，说明垂直滚动条到底
+
+
+                onscoll事件，该事件在元素的滚动条滚动时触发
+         */
+
+        var box = document.getElementById("box")
+        var btn = document.getElementById("btn")
+        var box1 = document.getElementById("box1")
+        var box2 = document.getElementById("box2")
+        var root = document.getElementById("root")
+
+        btn.onclick = function () {
+            // alert(box.clientHeight)
+            console.log(box.clientWidth);
+
+            console.log(box.offsetHeight);
+
+
+            // offsetParent
+            var op = box.offsetParent;
+            console.log(op.id);
+
+            console.log(box.offsetLeft);
+
+            // scrollHeight
+            console.log(box1.clientWidth, box1.clientHeight);
+            console.log(box1.scrollHeight);
+            console.log(box1.clientHeight);
+        }
+    </script>
+</body>
+</html>

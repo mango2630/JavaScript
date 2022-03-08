@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="form_city">
+            <p>你喜欢哪个城市</p>
+            <ul id="city">
+                <li id="bj">北京</li>
+                <li>上海</li>
+                <li>东京</li>
+                <li>首尔</li> 
+            </ul>
+        </div>
+        <div class="button_city">
+            <button class="btn1">创建一个广州节点，在#city下面</button>
+            <button class="btn2">将广州节点插入到#bj前面</button>
+            <button class="btn3">使用广州节点替换bj节点</button>
+            <button class="btn4">删除bj节点</button>
+            <button class="btn5">读取city内的HTML内容</button>
+            <button class="btn06">设置bj内的html内容</button>
+        </div>
+    </div>
+    <script>
+        /* 
+            创建元素节点：
+                - document.createElement()
+                    - 用于创建一个元素节点对象
+                    - 他需要一个标签名作为参数，将会根据标签名创建元素节点对象，并将它作为返回值返回
+                - document.createTextNode()
+                    - 可以用来创建一个文本节点对象
+                    - 需要一个文本内容作为参数，将会根据内容创建文本节点
+            添加节点：
+                - appendChild()
+                    向一个父节点中添加一个新的子节点
+                    父节点.appendChild(子节点)
+                - 父.insertBefore(new, old)
+                    在指定的子节点前面插入新的子节点
+            删除节点：
+                - 父.removeChild()
+                - 获取父元素节点：子.parentNode
+            
+            替换子节点：
+                - 父.replaceChild(new,, old)
+        */
+
+        // 创建一个广州节点，在#city下面
+        myClick("btn1", function () {
+            var city = document.getElementById("city")
+
+            // 创建广州节点 <li>广州</li>
+            var li = document.createElement("li")
+            var gztext = document.createTextNode("广州")
+            console.log(gztext);
+
+            // 将广州text设置为li的子节点
+            li.appendChild(gztext)
+
+            // 将广州添加到city下
+            city.appendChild(li)
+        })
+
+
+        // 将广州节点插入到#bj前面
+        myClick("btn2", function () {
+            var city = document.getElementById("city")
+
+            // 创建一个广州
+            var li = document.createElement("li")
+            var gztext = document.createTextNode("广州")
+            li.appendChild(gztext)
+
+            // 获取bj
+            var bj = document.getElementById("bj")
+
+            city.insertBefore(li, bj)
+        })
+
+        // 使用广州节点替换bj节点
+        myClick("btn3", function () {
+            var city = document.getElementById("city")
+
+            // 创建一个广州
+            var li = document.createElement("li")
+            var gztext = document.createTextNode("广州")
+            li.appendChild(gztext)
+
+            // 获取bj
+            var bj = document.getElementById("bj")
+            city.replaceChild(li, bj)
+        })
+
+        // 删除bj节点
+        myClick("btn4", function () {
+            var city = document.getElementById("city")
+
+            // 创建一个广州
+            var li = document.createElement("li")
+            var gztext = document.createTextNode("广州")
+            li.appendChild(gztext)
+
+            // 获取bj
+            var bj = document.getElementById("bj")
+            
+            // 删除bj
+            // city.removeChild(bj)
+
+            // 获取父元素删除
+            bj.parentNode.removeChild(bj)
+        })
+
+        // 读取city内的HTML内容
+        myClick("btn5", function () {
+            var city = document.getElementById("city")
+
+            console.log(city.innerHTML);
+        })
+
+        // 设置bj内的html内容
+        myClick("btn06", function () {
+            var bj = document.getElementById("bj")
+
+            bj.innerHTML = "dd"
+
+        })
+    
+
+        function myClick(str, fun) {
+            var btn = document.getElementsByClassName(str)[0]
+            btn.onclick = fun
+        }
+    </script>
+</body>
+</html>

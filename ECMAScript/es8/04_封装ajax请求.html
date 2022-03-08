@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=], initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 返回结果是promise对象
+        function sendAJAX(url) {
+
+            return new Promise((resolve, reject) => {
+                // 创建对象
+                const x = new XMLHttpRequest();
+                // 初始化
+                x.open('GET', url);
+                // 发送
+                x.send();
+                // 事件绑定
+                x.onreadystatechange = function () {
+                    if (x.readyState === 4){
+                        if(x.status >= 200 && x.status < 300){
+                            resolve(x.response)
+                        }else{
+                            reject(x.status)
+                        }
+                    }
+                }
+            })
+        }
+
+        /*  const res = sendAJAX('https://api.apiopen.top/getJoke');
+        res.then(value => {
+            console.log(value);
+        }, reason => {}) */
+
+
+        async function main() {
+            let result = await sendAJAX('https://api.apiopen.top/getJoke');
+            console.log(result);
+        }
+        main()
+    </script>
+</body>
+</html>

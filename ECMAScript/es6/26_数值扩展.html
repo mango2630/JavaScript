@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            Number.EPSILON: 2.22E-16 javascript的最小精度
+        */
+        console.log(0.1 + 0.2);
+        function equla(a, b) {
+            if(a + b < Number.EPSILON){
+                return true;
+            }else{
+                return false
+            }
+        }   
+
+
+        /* 
+            二进制 八进制
+            0      0o
+            十六进制 0x
+        */
+
+        /* 
+            检测一个数值是否为有限数 Number.isFinite()
+        */
+        console.log(Number.isFinite(100));
+
+
+        /* 
+            检测一个数值为NaN Number.isNaN
+        */
+        console.log(Number.isNaN(12));
+
+
+        /* 
+            Number.parseInt()
+            Number.parseFloat()
+        */
+
+
+        /* 
+            Number.isInteger()
+        */
+
+        /* 
+            Math.trunc() 将数字的小数部分抹掉
+        */
+        console.log(Math.trunc(2.11));
+
+
+        /* 
+            Math.sign() 判断一个数到底为正数 负数 还是零
+        */
+        console.log(Math.sign(100));
+        console.log(Math.sign(-100));
+        console.log(Math.sign(0));
+    </script>
+</body>
+</html>

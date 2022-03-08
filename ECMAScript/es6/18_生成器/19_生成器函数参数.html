@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            工作原理
+                - 创建一个指针对象，指向当前数据结构的起始位置
+                - 第一次调用对象next方法，指针自动指向数据结构的第一个成员
+                - 接下来不断调用next方法，指针一直往后移动，直到指向最后一个成员
+        */
+        function * gen(arg) {
+            console.log(arg);
+            let one = yield 111;
+            console.log(one);
+            yield 222;
+            yield 333;
+        }
+
+        // 执行获取迭代器对象
+        let iterator = gen('aaa');
+        console.log(iterator.next());
+        console.log(iterator.next('bbb'));
+
+    </script>
+</body>
+</html>

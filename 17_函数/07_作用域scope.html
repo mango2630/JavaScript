@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            作用域：
+                - 作用域只一个变量的作用范围
+                - 两种作用域：
+                    - 全局作用域：
+                        1. 在页面打开时创建，在页面关闭时销毁
+                        2. 在全局作用域中有一个全局对象window，我们可以直接使用
+                        3. 在全局作用域中，创建的变量都会作为window对象的属性保存
+                    - 函数作用域
+        */
+
+        function fun() {
+            var a = 12;
+            console.log('我是fun函数');
+        }
+        
+        console.log(a);
+    </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            原型 prototype
+                - 我们所创建的每一个函数，解析器都会向函数中添加一个属性prototype
+                - 如果函数作为普通函数调用prototype时没有任何作用
+                - 当函数以构造函数的形式调用时，它所创建的对象中都会有一个隐含的属性，指向该构造函数的原型对象,我们可以通过__proto__来访问该属性
+                - __proto__ 访问 prototype
+                - 原型对象就相当于一个公共的区域，所有同一个类的实例都可以访问到这个原型对象，我们可以将对象中共有的内容，统一设置到原型对象中
+                - 创建构造函数时，可以将这些对象共有的属性和方法，同意添加到构造函数的原型对象中，这样不用分别为每一个对象添加，也不会影响到全局作用域
+        */
+
+        function Person() {
+            
+        }
+
+        function MyClass() {
+            
+        }
+
+        function test() {
+            
+        }
+
+        var p1 = new Person()
+
+        console.log(Person.prototype == test.prototype);
+        console.log(test.prototype);
+        console.log(p1.__proto__ == Person.prototype);
+
+
+        // 向MyClass添加属性
+        MyClass.prototype.a = 10;
+        
+        var c1 = new MyClass()
+        var c2 = new MyClass();
+
+        c1.a = '我是c1的a'
+
+        console.log(c1.a); // 可以访问到
+
+        // 向MyClass中添加方法
+        MyClass.prototype.sayHello = function () {
+            console.log('sayhello');
+        }
+        c1.sayHello()
+    </script>
+</body>
+</html>

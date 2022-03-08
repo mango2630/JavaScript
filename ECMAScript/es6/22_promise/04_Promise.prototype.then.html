@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const p = new Promise((resolve, reject)=>{
+            setTimeout(()=>{
+                resolve('用户数据')
+            }, 1000)
+        })
+
+        // 调用then方法
+        /* 
+            then方法调用结果是promsie对象，对象状态由回调函数执行结果决定
+            1. 如果回调函数中返回的结果是 非promise类型 属性，状态为成功，返回值为对象的成功的值
+            2. 是promise对象，...
+        */
+        const result = p.then(function (value) {
+            console.log(value);
+            return 12;
+        }, function(reason) {
+            console.error(reasong);
+        })
+
+        console.log(result);
+    </script>
+</body>
+</html>

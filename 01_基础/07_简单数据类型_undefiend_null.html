@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var str;
+        console.log(str); // undefined
+
+        var test = undefined;
+        console.log(test); // undefined(类型)
+
+        // undefined和字符串相加，结果是字符串
+        console.log(test + ' string'); // undefined string
+
+        // undefined和数字相加，结果事NaN
+        console.log(test + 1); // NaN
+
+        var space = null;
+        console.log(space); // null
+        console.log(space + '123'); // null123
+        console.log(space + 1); // 1
+
+    </script>
+</body>
+</html>

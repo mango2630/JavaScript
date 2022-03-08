@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        /* 
+            方式一：Object构造函数模式
+                - 先创建object空对象，在动态添加属性/方法
+                - 起始时不确定对象内部数据
+                - 问题: 语句太多
+
+
+            方法二：对象字面量模式
+                - 使用{}创建对象
+                - 使用场景:其实时对象内部数据都是确定的
+                - 问题：如果创建多个，有重复代码
+
+            方法三：工厂模式
+                - 通过工厂函数动态创建对象并返回
+                - 使用场景：需要创建多个对象
+                - 问题：对象没有个一个具体类型，都是object类型
+
+            方法四：自定义构造函数模式
+                - 自定义构造函数，通过new
+                - 使用场景：需要创建多个类型确定对象
+                - 问题：每个对象都有相同的数据，浪费内存
+
+            方法五：构造函数+原型的组合模式
+                - 自定义构造函数，属性在函数中初始化，方法添加到原型上
+                - 需要创建多个类型确定的对象
+        */
+
+
+
+
+
+        // Object 定义构造函数
+        var p = new Object();
+        p.name = 'tom'
+        p.age = 12
+        p.setName = function (name) {
+            this.name = name
+        }
+
+        p.setName('Jack')
+
+
+        // 工厂
+        function createPerson(name, age) {
+            var obj = {
+                name: name,
+                age: age,
+                setName: function (name) {
+                    this.name = name
+                }
+            }
+
+            return obj
+        }
+
+        var p1 = new createPerson('a', 12)
+
+
+        // 自定义构造函数类型
+        function Person(name, age) {
+            this.name = name;
+            this.age = age;
+
+            // setName一样==>解决（放在原型对象上）
+            this.setName = function (name) {
+                this.name = name;
+            }
+        }
+
+        var p1 = new Person('tom', 12)
+        console.log(p1);
+
+        
+        // 方法五
+        function Dog(name, age) {
+            this.name = name;
+            this.age = age
+        }
+        Dog.prototype.setName = function (name) {
+            this.name = name
+        }
+
+        var d1 = new Dog('tom', 12)
+        var d2 = new Dog('jeck', 12)
+
+        console.log(d1, d2);
+    </script>
+
+</body>
+</html>

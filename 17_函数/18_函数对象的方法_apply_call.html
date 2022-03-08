@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            call()
+                - call(绑定的对象, 实参1, 实参2...)
+            apply()
+                - apply()需要将实参封装在数组中
+                - apply({}, [])
+
+                - 都是函数对象的方法，需要通过函数对象来调用 [函数名]
+                - 在调用call()和apply()，可以将一个对象指定为第一个参数,此时这个对象就会成为函数的this
+                
+        */
+
+        // 函数也是对象
+        function fun(a, b) {
+            console.log('我是fun函数');
+            console.log(this);
+            // a=undefined b=undefined
+            // undefined + undefined = NaN
+            console.log(a + b);
+
+        }
+        fun()  // window{}
+        fun.call()  // window{}
+        fun.apply()  // window{}
+
+        var obj = {
+            name : 'yuanxiao',
+            sayName : function () {
+                console.log('obj', this.name);
+            }
+        }
+        var obj2 = {
+            name : 'test'
+        }
+        fun.call(obj) // {}
+        fun.apply(obj) // {}
+
+        obj.sayName.apply(obj2) // test [参数是谁，this就是谁]
+
+
+        fun.call(obj, 1, 2)
+        fun.apply(obj, [2, 3])
+    </script>
+</body>
+</html>

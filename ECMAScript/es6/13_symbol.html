@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            Symbol特点：
+                - 值是唯一的，用来解决命名冲突的问题
+                - symbol值不能与其他数据进行运算
+                - symbol定义的对象属性不能使用for..in循环，可以使用Reflect.onwKeys来获取对象的所有键名
+            
+            数据类型：
+                undefined
+                string
+                object
+                number
+                null
+                symbol
+                boolean
+        */
+
+        // 创建Symbol 方式一
+        let s = Symbol()
+        console.log(s, typeof s);
+
+        // 创建方式二
+        let s2 = Symbol('guigu')
+        console.log(s2);
+        let s3 = Symbol('guigu')
+        // guigu: only is a flag
+        console.log(s2 === s3); // false
+
+        // 创建方式三 Symbol.for创建
+        // 该方法创建的 flag 是相同的
+        let s4 = Symbol.for('guigu')
+        let s5 = Symbol.for('guigu')
+        console.log(s4, s4 === s5); // true
+
+        // 不能与其它数据进行运算
+
+    </script>
+</body>
+</html>

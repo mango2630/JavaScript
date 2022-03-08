@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            new一次对象就会创建一个方法，占用空间
+            完全可以是所有的对象共享同一个方法
+            讲方法放在全局作用域
+        */
+
+        function Person(name, age) {
+            this.name = name;
+            this.age = age;
+            this.sayName = fun;
+        }
+
+        // 将sayName方法在全局作用域中定义
+        /* 
+            将函数定义在全局作用域，u污染了全局作用域的命名空间
+            而且定义在全局作用域也很不安全
+        */
+        function fun() {
+            console.log(this.name);
+        }
+
+        var per1 = new Person("yuanxiao", 18)
+        var per2 = new Person("danny", 18)
+        per1.sayName()
+        console.log(per1.sayName == per2.sayName); // true
+    </script>
+</body>
+</html>

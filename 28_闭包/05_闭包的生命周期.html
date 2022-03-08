@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            产生：在嵌套的内部函数 定义执行 完时就产生了
+
+            死亡：在嵌套的内部函数成为垃圾对象
+        */
+
+        function fn1() {
+
+            //此时闭包就已经产生了（函数提升，内部函数对象已经创建）
+            var a = 2;
+
+            function fn2() {
+                a ++
+                console.log(a);
+            }
+
+
+            // 另一种定义
+            var fn2 = function () { // 在这里产生闭包
+                a ++;
+                console.log(a);
+            }
+
+            return fn2
+        }
+
+        var f = fn1();
+        f()
+        f()
+
+        f = null; // 闭包死亡（包含必报的函数独享成为垃圾对象）
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            1. 单引号、双引号都可以
+            2. 字符串单双引号嵌套
+            3. 字符串换行
+                \n  \\  \' \* \t \b
+            4. 字符串长度 length 属性
+            5. 字符串拼接 + [数值相加，字符相连]
+            6. 字符串拼接加强
+        */
+
+        // 字符串换行
+        var str = '我是一个\n程序员'
+        console.log(str);
+
+        // 字符串长度
+        var str = 'my name is Danny';
+        console.log(str.length); // 16
+
+        // 字符串拼接
+        console.log('沙漠' + '骆驼');
+        console.log('age' + 18);
+        console.log('thing' + true);
+
+        // 字符串拼接加强
+        var myAge = 18;
+        console.log('age = ' + myAge);
+
+        var testAge;
+        testAge = prompt('你今年多大');
+        alert('我今年' + testAge + '岁');
+    </script>
+</body>
+</html>

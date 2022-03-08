@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            数组：将一组数据的集合存放在单个变量下
+            1. 创建数组：
+            new关键字
+            字面量
+            2. 数组里边可以放任何类型的数组
+            3. 获取数组元素
+            4. 遍历数组
+            5. 数组长度 [数组名.length]
+            6. 数组转换为分割字符串
+            7. 数组新增元素：
+                修改length长度
+
+            8. 筛选数组
+        */
+        // new关键字
+        var arr = new Array();
+        // 字面量（初始化）
+        var arrName = [1, 2, 3, 'name', 'age', true];
+        console.log(arrName);
+
+        // 求数组最大值
+        var testArr0 = [2, 5, 3, 8, 9];
+        var max = 0
+        for (var i = 0; i < testArr0.length; i++) {
+            max = testArr0[i];
+            if (arr[i] > max) {
+                max = testArr0[i]
+            }
+        }
+        console.log(max);
+
+        // 数组转换为分割字符串
+        var testArr1 = ['blue', 'red', 'yellow'];
+        var str = '';
+        for (var i = 0; i < testArr1.length; i++) {
+            str += testArr1[i] + '|'
+        }
+        console.log(str);
+
+        // 数组新增元素
+
+
+        // 筛选数组
+    </script>
+</body>
+
+</html>

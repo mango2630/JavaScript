@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            使用in检查对象中是否含有某个属性，如果对象没有，但是原型右，也会返回true
+            hasOwnProperty() : 检查对象自身中是否含有属性
+        */
+
+        function Myclass() {
+            
+        }
+
+        // 向MyClass的原型中添加一个name属性
+        Myclass.prototype.name = '我是原型的名字'
+        var c1 = new Myclass()
+        console.log("name" in c1);  // true
+        console.log(c1.hasOwnProperty("name")); // false
+        console.log(c1.hasOwnProperty("hasOwnProperty"));  // false
+        console.log(c1.__proto__.hasOwnProperty("hasOwnProperty")); // false
+
+        console.log(c1.__proto__);
+        console.log(c1.__proto__.__proto__); // 向上到object的__proto__
+        console.log(c1.__proto__.__proto__.__proto__); // null [object向上没有原型对象]
+
+        console.log(c1.__proto__.__proto__.hasOwnProperty("hasOwnProperty"));  // true
+
+
+    </script>
+    
+</body>
+</html>

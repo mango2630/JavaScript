@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            return 返回值
+            return 以后的语句不执行
+            return ;  或者不 return ,结果为undefined
+
+            函数名()
+                - 调用函数
+                - 相当于使用函数返回值
+            函数名
+                - 函数对象
+                - 相当于直接使用函数对象
+        */
+        function sum(a, b, c) {
+            // console.log(a + b + c);
+            // return a + b + c;
+            // return ;
+        }
+
+        var res = sum(1, 2, 3)
+        console.log(res);
+
+        // 偶数判断
+        function isEvenNumber(num) {
+            return num % 2 == 0 ? true : false;
+        }
+        var res = isEvenNumber(3);
+        console.log(res);
+
+        function fun() {
+            /* 
+            语法错误
+                console.log("break");
+                break; 
+            */
+        }
+        // fun()
+    </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box" style="background-color: cadetblue; width: 100px; height: 100px; position: relative;"></div>
+
+
+    <script>
+        /* 
+            键盘事件：
+                - onkeydown
+                    - 当onkeydown连续触发时，第一次和第二次之间会间隔超微查那个一点，其他的会非常的快
+                    - keyCode key altKey ctrlKey shiftKey
+                    - 如果在onkeydown中取消默认行为，则输入的内容不会出现在文本框中
+                - onkeyup
+            键盘事件一般绑定给可以获取焦点的对象或者document
+        */
+        var box1 = document.getElementById("box")
+
+        var dir = 0;
+        document.onkeydown = function (event ) {
+            console.log(event);
+            console.log(event.key);
+            console.log("键盘被按下了");
+            dir = event.key;
+            
+            setInterval(() => {
+                switch (dir) {
+                case "ArrowDown":
+                        box1.style.top = box1.offsetTop + 10 + "px";
+                        break;
+                    
+                    case "ArrowRight":
+                        box1.style.left = box1.offsetLeft + 10 + "px";
+                        break;
+                    case "ArrowLeft":
+                        box1.style.left = box1.offsetLeft - 10 + "px";
+                        break;
+                    case "ArrowUp":
+                    box1.style.top = box1.offsetTop - 10 + "px";
+                        break;
+                
+                    default:
+                        break;
+                }
+            }, 30);
+        }
+
+        document.onkeyup = function () {
+            dir = 0
+            console.log("键盘被松开了");
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">button</button>
+    <script>
+        /* 
+            HISTORY:
+                - 对象可以用来操作浏览器向前或向后
+                - 属性：
+                    - length:获取到当前访问的链接数量
+                - 对象方法：
+                    - back()
+                    - forward() 
+                    - go() 加载页面中的某个具体页面,z整数作为参数
+        */
+
+        console.log(history.length);
+
+        var btn = document.getElementById("btn")
+
+        btn.onclick = function () {
+            history.back();
+        }
+
+    </script>
+</body>
+</html>

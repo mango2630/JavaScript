@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            1. 依次输出什么？
+            2. 整个过程中产生几个执行上下文？[5个]
+                window + 4次调用
+        */
+    
+        console.log(i); // undefined
+        var i = 1;
+        foo(1) // 执行上下文
+        function foo(i) {
+            if(i == 4){
+                return ;
+            }
+            console.log(i);  // 1 2 3
+            foo(i + 1) // 执行上下文 [递归调用]
+            console.log(i); // 3 2 1
+        }
+        console.log(i); // 1
+
+
+        /* console.log(i);
+        var i = 1;
+        foo(1);
+        function foo(i) {
+            if(i == 4){
+                return ;
+            }
+            console.log(i);  
+            foo(i + 1);
+            console.log(i); 
+        }
+        console.log(i); */
+
+
+        // 测试题1
+        /* 
+            
+        */
+        
+        function a() {}
+        var a;
+        console.log(typeof a); // function
+
+
+        // 测试题2
+        if(!(b in window)){
+            var b = 1;
+        }
+        console.log(b); // undefined
+
+
+        // 测试题3
+        /* 
+            c is not a function
+        */
+        var c = 1;
+        function c(c) {
+            console.log(c); 
+        }
+        // c(2) // error
+
+
+        // test4
+        function Text(n) {
+            console.log(n);
+            var n = 3;
+            function n() {
+                
+            }
+            console.log(n);
+        }
+        Text(1)
+
+        // 执行顺序
+        /* var n;
+        function n() {
+            
+        }
+        console.log(n);
+        n = 3;
+        console.log(n); */
+
+
+        /* 
+            变量声明：定义变量，但不复制
+            变量赋值
+
+            变量提升只会提升变量名的声明，而不会提升变量的赋值初始化
+
+            函数提升大于变量提升
+            函数提升就是把函数变量的作用域提升到整个作用域的最前面
+        */
+
+        console.log(nn); // function
+        var nn = 1;
+        function nn() {
+            console.log(nn);
+        }
+    </script>
+</body>
+</html>

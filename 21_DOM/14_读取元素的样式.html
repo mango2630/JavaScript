@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1{
+            /* width: 200px; */
+            height: 200px;
+            background-color: brown;
+        }
+    </style>
+</head>
+<body>
+    <div id="box1"></div>
+    <button id="btn01">点我变样式</button>
+    <script>
+        /* 
+            读取样式：
+                - 使用style只能读取内联样式
+                - 读取当前元素正在显示的样式
+                    element.currentStyle.样式名 [IE]
+                - 其他浏览器
+                    getComputedStyle() [window方法，不支持IE8]
+                        - 第一个参数：要获取样式的元素
+                        - 第二个参数：传递一个值，一般都是Null
+                        - 如果获取的样式没有设置，则会获得真实的值
+                - 自定义函数，获取元素的样式
+                
+        */
+
+        var btn = document.getElementById("btn01")
+        var dox = document.getElementById("box1")
+
+        btn.onclick = function () {
+            // alert(dox.currentStyle.width)
+
+            /* var obj = getComputedStyle(dox, null)
+            console.log(obj.width); */
+
+            alert(getStyle(dox, "width"))
+        }
+
+        /* 
+            自定义元素：
+        */
+
+        function getStyle(obj, name) {
+            if(window.getComputedStyle){
+                return getComputedStyle(obj, null)[name];
+            }else{
+                return obj.currentStyle[name]
+            }
+        }
+
+    </script>
+</body>
+</html>

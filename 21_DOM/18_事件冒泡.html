@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1{
+            width: 200px;
+            height: 200px;
+            background-color: orangered;
+        }
+        #box1 span{
+            background-color: paleturquoise;
+        }
+    </style>
+</head>
+<body>
+    <div id="box1">
+        我是box1
+        <span>我是span</span>
+    </div>
+
+
+    <script>
+        /* 
+            事件冒泡(Bubble):
+                - 用事件对象来取消冒泡
+                - event.cancelBubble = true;
+                
+        */
+        
+        var s1 = document.getElementsByTagName("span")[0];
+
+        s1.onclick = function (event) {
+            alert("我是span单击点击函数");
+            event.cancelBubble = true;
+        }
+
+        var box1 = document.getElementById("box1")        
+        box1.onclick = function (event) {
+            alert("我是box1单机点击函数")
+            event.cancelBubble = true;
+        }
+
+        var body = document.getElementsByTagName("body")[0]
+        body.onclick = function () {
+            alert("我是body")
+        }
+    </script>
+</body>
+</html>

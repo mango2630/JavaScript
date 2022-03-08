@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    定时器引发的思考：
+        1. 定时器真的是定时执行吗？
+            - 定时器并不能保证真正定时执行
+            - 一般会延迟一丁点，也有可能延迟时间很长
+        2. 定时器回调函数是在哪个线程执行的？
+            - 在主线程执行，js是单线程
+        3. 定时器是如何实现的？
+            - 事件循环模型
+
+    <script>
+        var start = Date.now() // 得到当前的事件 1970.1.1
+        console.log('启动前', start);
+        setTimeout(() => {
+            console.log('执行',Date.now()-start);
+        }, 200);
+        console.log('启动后');
+    </script>
+</body>
+</html>

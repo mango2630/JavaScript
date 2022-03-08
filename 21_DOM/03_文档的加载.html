@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script>
+        
+    </script> -->
+</head>
+<body>
+    <button id="btn">button</button>
+
+    <script>
+        /* 
+            浏览器加载页面的顺序：
+                - 浏览器在加载页面时，按照自上向下的顺序加载
+                - 读取到一行就运行一行，如果将script标签写在上面，代码在执行时，页面还没有加载
+                - console.log(btn) // null
+                - onload事件会在1整个页面加载完成之后才触发
+            window.onload : 整个页面加载完成之后在执行
+
+        */
+        var btn = document.getElementById("btn")
+
+        btn.onclick = function () {
+            console.log("onclick btn");
+        }
+
+        window.onload = function () {
+            console.log('window.onload');
+        }
+    </script>
+</body>
+</html>

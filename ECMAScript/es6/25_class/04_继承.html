@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Phone{
+            constructor(brand, price){
+                this.price = price;
+                this.brand = brand;
+            }
+
+            play(){
+                console.log('play');
+            }
+        }
+
+        class SmartPhone extends Phone{
+            constructor(brand, price, color, size){
+                super(brand, price)
+                this.color = color;
+                this.size = size;
+            }
+
+            game(){
+                console.log('game');
+            }
+            play(){
+                console.log('xiao play');
+            }
+        }
+
+        const mi = new SmartPhone('f', 2, 'll', 2)
+        console.log(mi);
+        mi.play()
+    </script>
+</body>
+</html>

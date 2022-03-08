@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1{
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle at center, yellow, tomato, green);
+        }
+    </style>
+</head>
+<body>
+    <div id="box1"></div>
+
+    <script>
+        /* 
+            鼠标滚轮滚动事件：onmousewheel
+                - 火狐不兼容 [DOMMouseScroll]，用addEventListener
+        */
+        // 当鼠标滚轮向下滚动时，box1边长
+
+        var box1 = document.getElementById("box1")
+        
+
+        box1.onmousewheel = function (event) {
+            event = event || window.event
+            /* 
+                判断鼠标滚轮的方向
+                event.wheelDelta : 获取鼠标滚轮的方向
+                向下负，向上正
+            */
+            // console.log(event);
+            console.log(event.wheelDelta);
+
+            if (event.wheelDelta > 0){
+                // 向上滚 变短
+                box1.style.height = box1.clientHeight - 10 + "px"
+            } else { 
+                // 向下滚 边长
+                box1.style.height = box1.clientHeight + 10 + "px"
+            }
+
+            return false;
+        }
+
+        // 火狐 detail [向上负，向下正]
+        box1.addEventListener("DOMMouseScroll", function (event) {
+            console.log(event.detail);
+
+            if (event.detail > 0) {
+                // 向下
+                box1.style.height = box1.clientHeight + 10 + "px"
+            } else {
+                // 向上
+                box1.style.height = box1.clientHeight - 10 + "px"
+            }
+
+            /* 
+                使用 event.preventDefault()取消默认行为
+            */
+
+            // event.preventDefault();
+        }, false)
+
+    </script>
+</body>
+</html>

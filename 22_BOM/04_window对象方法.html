@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="count">1</h1>
+    <script>
+        /* 
+        window对象方法
+            - setInterval()
+                - 关闭定时器
+                - 返回值: 定时器的唯一标识
+
+            - setTimeout()
+        */
+
+        var count = document.getElementById("count")
+        var num = 1
+        console.log(parseInt(count.innerHTML));
+
+        var timer = setInterval(() => {
+            count.innerHTML = num ++
+        }, 500);
+        console.log(timer);
+        if(num == 10){
+            clearInterval(timer)
+        }
+        
+    </script>
+</body>
+</html>

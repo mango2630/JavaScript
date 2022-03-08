@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #outer{
+            width: 500px;
+            margin: 50px auto;
+            padding: 10px;
+            background-color: cornflowerblue;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="outer">
+        <p>1</p>
+        <img src="./img/1.jpg" alt="加载失败">
+        <button id="prev">上一张</button>
+        <button id="next">下一张</button>
+    </div>
+
+    <script>
+        var prev = document.getElementById("prev")
+        var next = document.getElementById("next")
+        var info = document.getElementsByTagName("p")[0];
+
+        
+        // 获取Img标签
+        var img = document.getElementsByTagName("img")[0]
+
+        var arrImg = ["./img/1.jpg", "./img/3.png", "./img/4.jpg"]
+
+        // 创建变量，保存当前正在显示的图片的索引
+        var index = 0;
+
+        for(var i = 0; i < arrImg.length; i ++){
+            if(img.src == arrImg[i]){
+                index = i;
+                break;
+            }
+        }
+
+        prev.onclick = function () {
+            if(index > 0){
+                console.log(index);
+                index --
+                img.src = arrImg[index]
+                
+                info.innerHTML = index
+            }else{
+                index = 0;
+            }
+        }
+
+        next.onclick = function () {
+            if(index < arrImg.length){
+                index ++
+                console.log(index);
+                img.src = arrImg[index];
+                info.innerHTML = index
+                
+            }else{
+                index = arrImg.length-1
+            }
+        }
+    </script>
+</body>
+</html>

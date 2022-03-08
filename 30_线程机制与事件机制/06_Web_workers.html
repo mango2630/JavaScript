@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" placeholder="数值">
+    <button>计算</button>
+
+    <script>
+        /* 
+            H5 web workers(多线程)
+                - 介绍
+
+                - 使用
+
+                - 图解
+
+                - 应用练习
+
+                - 不足
+        */
+
+        function fibonacci(number) {
+
+            if(number <= 2){
+                return 1;
+            } else{
+                return fibonacci(number - 1) + fibonacci(number - 2)
+            }
+
+            
+        }
+
+        var btn = document.getElementsByTagName('button')[0];
+
+        var input = document.getElementsByTagName('input')[0]
+
+
+        btn.onclick = function name(params) {
+            var n = input.value;
+
+            var res = fibonacci(n)
+            
+            alert(res)
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // ES6引入rest参数，用于获取函数的实参，用来代替arguments
+
+        // ES5获取方式 Object
+        function date() {
+            console.log(arguments);
+        }
+        date('xiao', 'song', 'yan')
+
+        // ES6 rest参数 数组
+        /* 
+            rest参数必须放到参数的最后
+        */
+        function dateTest(...args) {
+            console.log(args); // filter map some every
+        }
+        dateTest('xiao', 'song', 'yan')
+
+        // rest参数必须放到参数的最后
+        function fn(a, b, ...args) {
+            console.log(a, b, args);
+        }
+        fn(1, 2, 3, 4, 5, 6)
+    </script>
+</body>
+</html>

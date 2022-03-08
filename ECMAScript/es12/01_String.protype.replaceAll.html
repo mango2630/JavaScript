@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            替换字符
+        */
+        
+        // es2021之前
+        const str = "a + b + c";
+        const newStr = str.replace(/\+/g, '{}');
+        console.log(newStr);
+
+        // 字符串分割
+        const queryString = 'q=query+string';
+        const withSpaces = queryString.split("+").join(" ")
+        console.log(withSpaces);
+
+        // es2021 ==> replaceAll()
+        const newS = str.replaceAll("+", '[]');
+        console.log(newS);
+    </script>
+</body>
+</html>

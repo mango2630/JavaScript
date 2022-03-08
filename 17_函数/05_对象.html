@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            函数也可以成为对象的属性
+            调函数
+            调用方法
+        */
+        var obj = new Object();
+        obj.name = "Yuan"
+        obj.age = 12
+
+        obj.sayName = function () {
+            console.log(obj.name);
+        }
+
+        function fun() {
+            console.log("调用函数");
+        }
+
+        // 调方法
+        obj.sayName()
+
+        // 调函数
+        fun()
+    </script>
+</body>
+</html>

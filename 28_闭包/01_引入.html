@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>测试1</button>
+    <button>测试2</button>
+    <button>测试3</button>
+
+    <script>
+        /* 
+            点击某个按钮，提示点击的是第n个按钮
+        */
+        var btn = document.getElementsByTagName("button");
+        var len = btn.length
+        for(var i = 0; i < len; i ++){
+            /* btn[i].onclick = function () {
+                console.log(i);
+            } */
+
+            /* var obj = btn[i]
+            obj.onclick = function () {
+                console.log(i);
+            } */
+
+
+            /* var b = btn[i]
+            b.index = i;
+            b.onclick = function () {
+                console.log(this.index);
+            } */
+
+            // 闭包
+            (function (i) {
+                var obj = btn[i]
+                obj.onclick = function () {
+                    console.log(i);
+                } 
+            })(i)
+
+
+        }
+    </script>
+</body>
+</html>

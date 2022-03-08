@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            在底层字符串是以字符数组形式保存的
+            字符串属性：
+                -length
+                -...
+            字符串对象方法：
+                - charAt():返回指定位置的字符
+                - charCodeAt() : 返回Unicode编码
+                - String.fromCharCode() : 可以根据字符编码获取字符
+                - indexOf(str, startPosition):检查一个字符串中是否含有指定内容
+                    如果字符串中含有改内容，则会返回第一次出现的索引
+                    如果没有找到指定内容，返回-1
+                - lastIndexOf()
+                - slice():截取数组【可以传递负值作为参数】
+                - match() replace() search
+                - substring() : 截取字符串【不能传递负值作为参数】
+                - substr(截取开始位置，截取长度)：用来截取字符串
+                - split():将一个字符串拆分为数组
+                - toUpperCase()
+                - toLowerCase()
+        */
+
+        var str = "hello world"
+        console.log(str.length, str[0]);
+
+        console.log(str.charAt(4));
+        console.log(str.charCodeAt(2));
+        console.log(String.fromCharCode(222));
+
+        console.log(str.indexOf("l"));
+        console.log(str.indexOf("l", 3));
+
+        var str1 = "agalfjalfjlag"
+        console.log(str1.slice(0, -3));
+        console.log(str1.substring(0, 3));
+
+        var str2 = "123a42a243a32"
+        var res = str2.split('a')
+        console.log(res);
+    </script>
+</body>
+</html>

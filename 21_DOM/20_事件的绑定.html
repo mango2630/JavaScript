@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>click me</button>
+
+    <script>
+        /* 
+            使用 对象.事件 = 函数的形式及绑定响应函数
+                他只能同时为一个元素的一个事件绑定响应函数
+                不能绑定多个，如果绑定多个，则后便会覆盖掉
+
+            addEventListener()
+                - 通过这个方法也可以为元素绑定响应函数
+                - 参数：
+                    1. 事件的字符串,去掉字符串
+                    2. 回调函数
+                    3. 是否在捕获截断触发事件
+                - this : this
+            attachEvent[IE8]
+                - 参数
+                    1. 事件的字符串,去掉字符串
+                    2. 回调函数
+                - this -> window
+            
+            定义以一个 bind:用来为指定元素绑定响应函数
+                - 参数：
+                    - obj 要绑定事件对象
+                    - eventStr 事件的字符串
+                    - callback 回调函数
+        */
+        
+        var btn = document.getElementsByTagName("button")[0]
+        
+        /*  btn.onclick = function () {
+            console.log(1);
+        }
+
+        btn.onclick = function () {
+            console.log(2);
+        } */
+
+        btn.addEventListener("click" , function () {
+            console.log(1);
+        },false)
+        btn.addEventListener("click" , function () {
+            console.log(2);
+        },false)
+        btn.addEventListener("click" , function () {
+            console.log(3);
+        },false)
+
+        function bind(obj, eventStr, callback) {
+            // 大部分浏览器
+            // obj.addEventListener(eventStr, callback, false)
+
+            // IE8
+            // obj.attachEvent(eventStr, callback)
+
+            if(obj.addEventListener){
+                obj.addEventListener(eventStr, callback, false)
+            }else{
+                obj.attachEvent("on"+eventStr, function () {
+                    callback.call(obj)
+                })
+            }
+
+        }
+    </script>
+</body>
+</html>

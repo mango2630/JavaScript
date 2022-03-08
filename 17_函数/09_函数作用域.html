@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            函数作用域：
+                - 调用函数时创建函数作用域，函数执行完毕以后，函数作用域销毁
+                - 每调用一次函数就会创建一个新的函数作用域，他们之间是互相独立的
+                - 在函数作用域也有生命提前
+                - 函数声明也会在函数中所有的代码执行之前执行
+        */
+        var a = "我是全局的a"
+        function fun() {
+            var a = "我是函数中的变量a"
+            var b = 20;
+            console.log(b);
+            console.log(a);
+
+            // 在函数作用域也有生命提前
+            console.log(c); // undefined
+            var c = 10;
+
+            // 函数声明也会在函数中所有的代码执行之前执行
+            fun4()
+            function fun4(){
+                console.log("fun4");
+            }
+        }
+
+        fun()
+        // console.log(b); // Error
+
+        console.log(a);
+    </script>
+</body>
+</html>

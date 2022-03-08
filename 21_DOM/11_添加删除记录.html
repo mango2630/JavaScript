@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            width: 500px;
+            margin: 20px auto;
+            border: 1px solid black;
+        }
+        .table_info{
+            margin: 20px 100px;
+            display: block;
+        }
+        .user_info{
+            border: 1px solid black;
+            width: 300px;
+            margin: 10px auto;
+            padding: 10px 15px;
+        }
+        .user_info #btn{
+            margin: 10px 50px;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="table_info">
+            <table id="employeeTable" border="1">
+                <tr>
+                    <th>Name</th>
+                    <th>email</th>
+                    <th>salary</th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td>Tom</td>
+                    <td>tom@tom.com</td>
+                    <td>5000</td>
+                    <td><a href="javascrip:;">Delete</a></td>
+                </tr>
+                <tr>
+                    <td>Danny</td>
+                    <td>Danny@tom.com</td>
+                    <td>5000</td>
+                    <td><a href="">Delete</a></td>
+                </tr>
+            </table>
+        </div>
+        <div class="user_info">
+            <h3>添加新员工</h3>
+            <form action="">
+                name : <input type="text" name="username" id="username">
+                <br>
+                email : <input type="email" name="email" id="email">
+                <br>
+                salary : <input type="text" name="salary" id="salry">
+                <br>
+                <input type="submit" value="Submit" id="btn">
+
+            </form>
+        </div>
+    </div>
+
+    <script>
+
+
+        /* 
+            删除tr的响应函数
+        */
+
+        function del_A() {
+
+            /* 
+                点击超链接后，需要删除点击的那行
+
+            */
+            // 获取tr
+            var tr = this.parentNode.parentNode;
+            console.log(tr);
+
+            var str = tr.getElementsByTagName("td")[0].innerHTML
+            // 删除之前弹出提示框，确认删除
+            var res = confirm("确认删除" + str)
+            if(res){
+                // 删除tr
+                tr.parentNode.removeChild(tr)
+            }else{
+                console.log('不删除');
+            }
+
+
+            console.log("delete info");
+            // 阻止事件默认行为
+            return false;
+            
+        }
+
+        /* 
+            点击超链接后，删除员工
+        */ 
+        // 获取超链接
+        var allA = document.getElementsByTagName("a")
+        // 为每个a绑定单击函数
+        for(var i = 0; i < allA.length; i ++){
+            allA[i].onclick = del_A
+        }
+
+
+        /* 
+            添加新x员工
+        */
+        var btn = document.getElementById("btn")
+        btn.onclick = function () {
+
+            var username = document.getElementsByName("username")[0].value
+            var email = document.getElementsByName("email")[0].value;
+            var salary = document.getElementsByName("salary")[0].value;
+            // console.log(username, email, salary);
+
+            // 将获取到的信息保存在tr中
+            var tr = document.createElement("tr")
+            
+            tr.innerHTML = "<td>"+username+"</td>" + 
+                            "<td>"+email+"</td>" +
+                            "<td>"+salary+"</td>" +
+                            '<td><a href="javascrip:;">Delete</a></td>';
+
+            
+            // aTd.onclick = del_A
+            var a = tr.getElementsByTagName("a")[0];
+            a.onclick = del_A;
+
+            var table_p = document.getElementById("employeeTable")
+            console.log(table_p);
+            var table = table_p.getElementsByTagName("tbody")[0]
+            console.log(table);
+            table.appendChild(tr);
+            
+            // 防止事件冒泡
+            return false;
+        }
+
+    </script>
+</body>
+</html>
